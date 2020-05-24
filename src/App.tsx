@@ -51,7 +51,7 @@ function App() {
 
   return (
     <div className="App">
-      <audio src="/roulette.opus" autoPlay={false} ref={audioRef} />
+      <audio src="roulette.opus" autoPlay={false} ref={audioRef} />
       <div>
         {isRunning ? <InProgress /> : <img src={itemUrl} width="400" height="400" alt="item" />}
       </div>

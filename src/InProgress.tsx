@@ -10,7 +10,7 @@ const itemsUrls: string[] = [
 ];
 
 const InProgress = () => {
-  const [itemUrl, setItemUrl] = useState("/items/item-box.png");
+  const [itemUrl, setItemUrl] = useState("items/item-box.png");
   const animationRef = React.useRef<number>();
 
   const animate = () => {
