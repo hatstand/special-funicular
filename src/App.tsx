@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import InProgress from './InProgress';
 
@@ -19,9 +19,57 @@ const bottomItems: string[] = [
   "items/star.png",
 ].map(x => process.env.PUBLIC_URL + "/" + x);
 
+enum State {
+  INITIAL = 0,
+  RUNNING = 1,
+  SELECTED = 2,
+  COMPLETE = 3,
+}
+
+interface Props {
+  state: State;
+  itemUrl: string;
+}
+
+const ItemBox: React.FC<Props> = ({state, itemUrl}) => {
+  switch (state) {
+    case State.INITIAL:
+      return (
+        <img src={process.env.PUBLIC_URL + "/items/item-box.png"} width="400" height="400" alt="item" />
+      );
+    case State.RUNNING:
+      return (
+        <InProgress />
+      );
+    case State.SELECTED:
+      return (
+        <SelectedItemBox itemUrl={itemUrl} />
+      );
+    case State.COMPLETE:
+      return (
+        <img src={itemUrl} width="400" height="400" alt="item" />
+      );
+  }
+};
+
+const SelectedItemBox: React.FC<{itemUrl: string}> = ({itemUrl}) => {
+  const [highlight, setHighlight] = useState(false);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setHighlight(!highlight);
+    }, 150)
+    return () => clearInterval(interval);
+  })
+
+  return (
+    <img src={itemUrl} width="400" height="400" alt="item" style={{backgroundColor: highlight ? 'black' : 'white'}}/>
+  )
+}
+
 function App() {
   const [itemUrl, setItemUrl] = useState(process.env.PUBLIC_URL + "/items/item-box.png");
-  const [isRunning, setRunning] = useState(false);
+  const [runState, setRunning] = useState(State.INITIAL);
   const audioRef = React.createRef<HTMLAudioElement>();
 
   const pickLeaderItem = () => leaderItems[Math.floor(Math.random() * leaderItems.length)];
@@ -31,10 +79,14 @@ function App() {
   const onStart = (resultUrl: string) => {
     audioRef.current?.load();
     audioRef.current?.play().then(() => {
-      setRunning(true);
+      setRunning(State.RUNNING);
       setTimeout(() => {
         setItemUrl(resultUrl);
-        setRunning(false);
+        setRunning(State.SELECTED);
+
+        setTimeout(() => {
+          setRunning(State.COMPLETE);
+        }, 1700);
       }, 3300);
     });
   };
@@ -49,16 +101,18 @@ function App() {
 
   const onBottom = () => onStart(pickBottomItem());
 
+  const isRunning = () => runState === State.RUNNING;
+
   return (
     <div className="App">
       <audio src={process.env.PUBLIC_URL + "/roulette.opus"} autoPlay={false} ref={audioRef} />
       <div>
-        {isRunning ? <InProgress /> : <img src={itemUrl} width="400" height="400" alt="item" />}
+        <ItemBox state={runState} itemUrl={itemUrl} />
       </div>
       <div className="mt-4">
-        <button className="btn btn-dark mx-2" onClick={onLeader} disabled={isRunning}>Leader</button>
-        <button className="btn btn-dark mx-2" onClick={onMidPack} disabled={isRunning}>Mid Pack</button>
-        <button className="btn btn-dark mx-2" onClick={onBottom} disabled={isRunning}>Bottom Two</button>
+        <button className="btn btn-dark mx-2" onClick={onLeader} disabled={isRunning()}>Leader</button>
+        <button className="btn btn-dark mx-2" onClick={onMidPack} disabled={isRunning()}>Mid Pack</button>
+        <button className="btn btn-dark mx-2" onClick={onBottom} disabled={isRunning()}>Bottom Two</button>
       </div>
     </div>
   );
