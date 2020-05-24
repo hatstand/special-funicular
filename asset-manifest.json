@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/special-funicular/static/css/main.5f361e03.chunk.css",
-    "main.js": "/special-funicular/static/js/main.0578ce10.chunk.js",
-    "main.js.map": "/special-funicular/static/js/main.0578ce10.chunk.js.map",
+    "main.js": "/special-funicular/static/js/main.124a035c.chunk.js",
+    "main.js.map": "/special-funicular/static/js/main.124a035c.chunk.js.map",
     "runtime-main.js": "/special-funicular/static/js/runtime-main.285b8127.js",
     "runtime-main.js.map": "/special-funicular/static/js/runtime-main.285b8127.js.map",
     "static/js/2.995ca0f3.chunk.js": "/special-funicular/static/js/2.995ca0f3.chunk.js",
     "static/js/2.995ca0f3.chunk.js.map": "/special-funicular/static/js/2.995ca0f3.chunk.js.map",
     "index.html": "/special-funicular/index.html",
-    "precache-manifest.e33a5643f02a06e9ade4e44488e889fd.js": "/special-funicular/precache-manifest.e33a5643f02a06e9ade4e44488e889fd.js",
+    "precache-manifest.0c019a39b6f15e19dc68cd462329492c.js": "/special-funicular/precache-manifest.0c019a39b6f15e19dc68cd462329492c.js",
     "service-worker.js": "/special-funicular/service-worker.js",
     "static/css/main.5f361e03.chunk.css.map": "/special-funicular/static/css/main.5f361e03.chunk.css.map",
     "static/js/2.995ca0f3.chunk.js.LICENSE.txt": "/special-funicular/static/js/2.995ca0f3.chunk.js.LICENSE.txt"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.285b8127.js",
     "static/js/2.995ca0f3.chunk.js",
     "static/css/main.5f361e03.chunk.css",
-    "static/js/main.0578ce10.chunk.js"
+    "static/js/main.124a035c.chunk.js"
   ]
 }
