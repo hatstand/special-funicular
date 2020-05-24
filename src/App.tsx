@@ -40,12 +40,13 @@ function App() {
 
   const onStart = (resultUrl: string) => {
     audioRef.current?.load();
-    audioRef.current?.play();
-    setRunning(true);
-    setTimeout(() => {
-      setItemUrl(resultUrl);
-      setRunning(false);
-    }, 3300);
+    audioRef.current?.play().then(() => {
+      setRunning(true);
+      setTimeout(() => {
+        setItemUrl(resultUrl);
+        setRunning(false);
+      }, 3300);
+    });
   };
 
   const onLeader = () => {
