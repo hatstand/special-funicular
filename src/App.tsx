@@ -20,7 +20,7 @@ const bottomItems: string[] = [
 ];
 
 function App() {
-  const [itemUrl, setItemUrl] = useState("/items/item-box.png");
+  const [itemUrl, setItemUrl] = useState("items/item-box.png");
   const [isRunning, setRunning] = useState(false);
   const audioRef = React.createRef<HTMLAudioElement>();
 
