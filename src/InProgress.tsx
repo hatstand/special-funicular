@@ -30,9 +30,9 @@ const InProgress = () => {
   });
 
   return (
-    <>
+    <div style={{padding: '24px'}}>
       <img src={itemUrl} width="400" height="400" alt="item" />
-    </>
+    </div>
   )
 };
 

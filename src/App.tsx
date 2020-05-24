@@ -31,11 +31,19 @@ interface Props {
   itemUrl: string;
 }
 
+const BaseItemBox: React.FC<{itemUrl: string}> = ({itemUrl}) => {
+  return (
+    <div style={{padding: '24px', display: 'inline-block'}}>
+      <img src={itemUrl} width="400" height="400" alt="item" />
+    </div>
+  )
+};
+
 const ItemBox: React.FC<Props> = ({state, itemUrl}) => {
   switch (state) {
     case State.INITIAL:
       return (
-        <img src={process.env.PUBLIC_URL + "/items/item-box.png"} width="400" height="400" alt="item" />
+        <BaseItemBox itemUrl={process.env.PUBLIC_URL + "/items/item-box.png"} />
       );
     case State.RUNNING:
       return (
@@ -47,7 +55,7 @@ const ItemBox: React.FC<Props> = ({state, itemUrl}) => {
       );
     case State.COMPLETE:
       return (
-        <img src={itemUrl} width="400" height="400" alt="item" />
+        <BaseItemBox itemUrl={itemUrl} />
       );
   }
 };
@@ -63,7 +71,9 @@ const SelectedItemBox: React.FC<{itemUrl: string}> = ({itemUrl}) => {
   })
 
   return (
-    <img src={itemUrl} width="400" height="400" alt="item" style={{backgroundColor: highlight ? 'black' : 'white'}}/>
+    <div style={{padding: '24px', display: 'inline-block', backgroundColor: highlight ? 'black' : 'white'}}>
+      <img src={itemUrl} width="400" height="400" alt="item"/>
+    </div>
   )
 }
 
