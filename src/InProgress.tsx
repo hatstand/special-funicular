@@ -27,11 +27,11 @@ const InProgress = () => {
         cancelAnimationFrame(animationRef.current)
       }
     }
-  }, []);
+  });
 
   return (
     <>
-      <img src={itemUrl} width="400" height="400" />
+      <img src={itemUrl} width="400" height="400" alt="item" />
     </>
   )
 };

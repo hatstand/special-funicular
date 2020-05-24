@@ -1,16 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
 import InProgress from './InProgress';
-
-const itemsUrls: string[] = [
-  "/items/banana.png",
-  "/items/blue-shell.png",
-  "/items/lightning.png",
-  "/items/mushroom.png",
-  "/items/red-shell.png",
-  "/items/star.png",
-];
 
 const leaderItems: string[] = [
   "/items/banana.png",
@@ -63,7 +53,7 @@ function App() {
     <div className="App">
       <audio src="/roulette.opus" autoPlay={false} ref={audioRef} />
       <div>
-        {isRunning ? <InProgress /> : <img src={itemUrl} width="400" height="400" />}
+        {isRunning ? <InProgress /> : <img src={itemUrl} width="400" height="400" alt="item" />}
       </div>
       <div className="mt-4">
         <button className="btn btn-dark mx-2" onClick={onLeader} disabled={isRunning}>Leader</button>
