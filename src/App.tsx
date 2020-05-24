@@ -21,18 +21,20 @@ const leaderItems: string[] = [
 function App() {
   const [itemUrl, setItemUrl] = useState("/items/item-box.png");
   const [isRunning, setRunning] = useState(false);
+  const audioRef = React.createRef<HTMLAudioElement>();
 
   const onLeader = () => {
+    audioRef.current?.play();
     setRunning(true);
     setTimeout(() => {
       setItemUrl(leaderItems[Math.floor(Math.random() * leaderItems.length)])
       setRunning(false);
-    }, 5000);
+    }, 3300);
   };
 
   return (
     <div className="App">
-      <div>{`Running: ${isRunning}`}</div>
+      <audio src="/roulette.opus" autoPlay={false} ref={audioRef} />
       <div>
         {isRunning ? <InProgress /> : <img src={itemUrl} width="400" height="400" />}
       </div>
