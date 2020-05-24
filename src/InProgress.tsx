@@ -7,7 +7,7 @@ const itemsUrls: string[] = [
   "items/mushroom.png",
   "items/red-shell.png",
   "items/star.png",
-];
+].map(x => process.env.PUBLIC_URL + "/" + x);
 
 const InProgress = () => {
   const [itemUrl, setItemUrl] = useState("items/item-box.png");
