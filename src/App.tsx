@@ -111,7 +111,7 @@ function App() {
 
   const onBottom = () => onStart(pickBottomItem());
 
-  const isRunning = () => runState === State.RUNNING || runState == State.SELECTED;
+  const isRunning = () => runState === State.RUNNING || runState === State.SELECTED;
 
   return (
     <div className="App">
