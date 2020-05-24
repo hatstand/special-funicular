@@ -12,18 +12,30 @@ const itemsUrls: string[] = [
   "/items/star.png",
 ];
 
+const leaderItems: string[] = [
+  "/items/banana.png",
+  "/items/mushroom.png",
+  "/items/red-shell.png",
+];
+
 function App() {
   const [itemUrl, setItemUrl] = useState("/items/item-box.png");
   const [isRunning, setRunning] = useState(false);
 
   const onLeader = () => {
     setRunning(true);
+    setTimeout(() => {
+      setItemUrl(leaderItems[Math.floor(Math.random() * leaderItems.length)])
+      setRunning(false);
+    }, 5000);
   };
 
   return (
     <div className="App">
       <div>{`Running: ${isRunning}`}</div>
-      {isRunning ? <InProgress /> : <img src={itemUrl} width="400" height="400" />}
+      <div>
+        {isRunning ? <InProgress /> : <img src={itemUrl} width="400" height="400" />}
+      </div>
       <button onClick={onLeader}>Leader</button>
       <button>Mid Pack</button>
       <button>Bottom Two</button>

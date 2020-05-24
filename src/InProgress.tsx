@@ -20,9 +20,7 @@ const InProgress = () => {
   });
 
   return (
-    <div>
-      <img src={itemUrl} width="400" height="400" />
-    </div>
+    <img src={itemUrl} width="400" height="400" />
   )
 };
 
