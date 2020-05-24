@@ -65,9 +65,11 @@ function App() {
       <div>
         {isRunning ? <InProgress /> : <img src={itemUrl} width="400" height="400" />}
       </div>
-      <button onClick={onLeader} disabled={isRunning}>Leader</button>
-      <button onClick={onMidPack} disabled={isRunning}>Mid Pack</button>
-      <button onClick={onBottom} disabled={isRunning}>Bottom Two</button>
+      <div className="mt-4">
+        <button className="btn btn-dark mx-2" onClick={onLeader} disabled={isRunning}>Leader</button>
+        <button className="btn btn-dark mx-2" onClick={onMidPack} disabled={isRunning}>Mid Pack</button>
+        <button className="btn btn-dark mx-2" onClick={onBottom} disabled={isRunning}>Bottom Two</button>
+      </div>
     </div>
   );
 }
