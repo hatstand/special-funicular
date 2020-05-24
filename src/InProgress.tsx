@@ -14,7 +14,6 @@ const InProgress = () => {
   const animationRef = React.useRef<number>();
 
   const animate = () => {
-    console.log('animate');
     setItemUrl(itemsUrls[Math.floor(Math.random() * itemsUrls.length)]);
     animationRef.current = requestAnimationFrame(animate);
   };
