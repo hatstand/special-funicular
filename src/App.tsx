@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import InProgress from './InProgress';
 
 const itemsUrls: string[] = [
   "/items/banana.png",
@@ -15,13 +16,6 @@ function App() {
   const [itemUrl, setItemUrl] = useState("/items/item-box.png");
   const [isRunning, setRunning] = useState(false);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setItemUrl(itemsUrls[Math.floor(Math.random() * itemsUrls.length)]);
-    }, isRunning ? 250 : 10000000000);
-    return () => clearInterval(interval);
-  });
-
   const onLeader = () => {
     setRunning(true);
   };
@@ -29,7 +23,7 @@ function App() {
   return (
     <div className="App">
       <div>{`Running: ${isRunning}`}</div>
-      <img src={itemUrl} width="400" height="400" />
+      {isRunning ? <InProgress /> : <img src={itemUrl} width="400" height="400" />}
       <button onClick={onLeader}>Leader</button>
       <button>Mid Pack</button>
       <button>Bottom Two</button>
