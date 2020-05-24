@@ -25,8 +25,8 @@ function App() {
   const audioRef = React.createRef<HTMLAudioElement>();
 
   const pickLeaderItem = () => leaderItems[Math.floor(Math.random() * leaderItems.length)];
-  const pickMidPackItem = () => midPackItems[Math.floor(Math.random() * leaderItems.length)];
-  const pickerBottomItem = () => bottomItems[Math.floor(Math.random() * leaderItems.length)];
+  const pickMidPackItem = () => midPackItems[Math.floor(Math.random() * midPackItems.length)];
+  const pickBottomItem = () => bottomItems[Math.floor(Math.random() * bottomItems.length)];
 
   const onStart = (resultUrl: string) => {
     audioRef.current?.load();
@@ -47,7 +47,7 @@ function App() {
     onStart(pickMidPackItem())
   };
 
-  const onBottom = () => onStart(pickerBottomItem());
+  const onBottom = () => onStart(pickBottomItem());
 
   return (
     <div className="App">
