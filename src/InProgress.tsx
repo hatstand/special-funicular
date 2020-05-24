@@ -11,13 +11,24 @@ const itemsUrls: string[] = [
 
 const InProgress = () => {
   const [itemUrl, setItemUrl] = useState("/items/item-box.png");
+  const animationRef = React.useRef<number>();
+
+  const animate = () => {
+    console.log('animate');
+    setItemUrl(itemsUrls[Math.floor(Math.random() * itemsUrls.length)]);
+    animationRef.current = requestAnimationFrame(animate);
+  };
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setItemUrl(itemsUrls[Math.floor(Math.random() * itemsUrls.length)]);
-    }, 250);
-    return () => clearInterval(interval);
-  });
+    animationRef.current = requestAnimationFrame(() => {
+      animate();
+    });
+    return () => {
+      if (animationRef.current) {
+        cancelAnimationFrame(animationRef.current)
+      }
+    }
+  }, []);
 
   return (
     <>
