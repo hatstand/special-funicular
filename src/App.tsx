@@ -14,8 +14,19 @@ const itemsUrls: string[] = [
 
 const leaderItems: string[] = [
   "/items/banana.png",
+  "/items/lightning.png",
+];
+
+const midPackItems: string[] = [
+  "/items/blue-shell.png",
   "/items/mushroom.png",
   "/items/red-shell.png",
+];
+
+const bottomItems: string[] = [
+  "/items/blue-shell.png",
+  "/items/lightning.png",
+  "/items/star.png",
 ];
 
 function App() {
@@ -23,14 +34,29 @@ function App() {
   const [isRunning, setRunning] = useState(false);
   const audioRef = React.createRef<HTMLAudioElement>();
 
-  const onLeader = () => {
+  const pickLeaderItem = () => leaderItems[Math.floor(Math.random() * leaderItems.length)];
+  const pickMidPackItem = () => midPackItems[Math.floor(Math.random() * leaderItems.length)];
+  const pickerBottomItem = () => bottomItems[Math.floor(Math.random() * leaderItems.length)];
+
+  const onStart = (resultUrl: string) => {
+    audioRef.current?.load();
     audioRef.current?.play();
     setRunning(true);
     setTimeout(() => {
-      setItemUrl(leaderItems[Math.floor(Math.random() * leaderItems.length)])
+      setItemUrl(resultUrl);
       setRunning(false);
     }, 3300);
   };
+
+  const onLeader = () => {
+    onStart(pickLeaderItem());
+  };
+
+  const onMidPack = () => {
+    onStart(pickMidPackItem())
+  };
+
+  const onBottom = () => onStart(pickerBottomItem());
 
   return (
     <div className="App">
@@ -38,9 +64,9 @@ function App() {
       <div>
         {isRunning ? <InProgress /> : <img src={itemUrl} width="400" height="400" />}
       </div>
-      <button onClick={onLeader}>Leader</button>
-      <button>Mid Pack</button>
-      <button>Bottom Two</button>
+      <button onClick={onLeader} disabled={isRunning}>Leader</button>
+      <button onClick={onMidPack} disabled={isRunning}>Mid Pack</button>
+      <button onClick={onBottom} disabled={isRunning}>Bottom Two</button>
     </div>
   );
 }
