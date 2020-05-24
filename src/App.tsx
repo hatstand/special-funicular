@@ -3,20 +3,20 @@ import './App.css';
 import InProgress from './InProgress';
 
 const leaderItems: string[] = [
-  "/items/banana.png",
-  "/items/lightning.png",
+  "items/banana.png",
+  "items/lightning.png",
 ];
 
 const midPackItems: string[] = [
-  "/items/blue-shell.png",
-  "/items/mushroom.png",
-  "/items/red-shell.png",
+  "items/blue-shell.png",
+  "items/mushroom.png",
+  "items/red-shell.png",
 ];
 
 const bottomItems: string[] = [
-  "/items/blue-shell.png",
-  "/items/lightning.png",
-  "/items/star.png",
+  "items/blue-shell.png",
+  "items/lightning.png",
+  "items/star.png",
 ];
 
 function App() {

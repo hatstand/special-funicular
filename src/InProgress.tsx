@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 
 const itemsUrls: string[] = [
-  "/items/banana.png",
-  "/items/blue-shell.png",
-  "/items/lightning.png",
-  "/items/mushroom.png",
-  "/items/red-shell.png",
-  "/items/star.png",
+  "items/banana.png",
+  "items/blue-shell.png",
+  "items/lightning.png",
+  "items/mushroom.png",
+  "items/red-shell.png",
+  "items/star.png",
 ];
 
 const InProgress = () => {
