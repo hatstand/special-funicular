@@ -5,15 +5,15 @@
     "main.js.map": "/special-funicular/static/js/main.fc31daaa.chunk.js.map",
     "runtime-main.js": "/special-funicular/static/js/runtime-main.f920a72c.js",
     "runtime-main.js.map": "/special-funicular/static/js/runtime-main.f920a72c.js.map",
-    "static/js/2.f00fae4f.chunk.js": "/special-funicular/static/js/2.f00fae4f.chunk.js",
-    "static/js/2.f00fae4f.chunk.js.map": "/special-funicular/static/js/2.f00fae4f.chunk.js.map",
+    "static/js/2.0e3b86e3.chunk.js": "/special-funicular/static/js/2.0e3b86e3.chunk.js",
+    "static/js/2.0e3b86e3.chunk.js.map": "/special-funicular/static/js/2.0e3b86e3.chunk.js.map",
     "index.html": "/special-funicular/index.html",
     "static/css/main.8c8b27cf.chunk.css.map": "/special-funicular/static/css/main.8c8b27cf.chunk.css.map",
-    "static/js/2.f00fae4f.chunk.js.LICENSE.txt": "/special-funicular/static/js/2.f00fae4f.chunk.js.LICENSE.txt"
+    "static/js/2.0e3b86e3.chunk.js.LICENSE.txt": "/special-funicular/static/js/2.0e3b86e3.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.f920a72c.js",
-    "static/js/2.f00fae4f.chunk.js",
+    "static/js/2.0e3b86e3.chunk.js",
     "static/css/main.8c8b27cf.chunk.css",
     "static/js/main.fc31daaa.chunk.js"
   ]
